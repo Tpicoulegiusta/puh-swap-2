@@ -6,13 +6,13 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:52:33 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/13 12:54:55 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:57:18 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dblist	*dlist_add_end(t_dblist *list, int value)
+t_dblist	*dlist_add_head(t_dblist *list, int value)
 {
 	struct s_node	*new;
 
@@ -58,7 +58,7 @@ void	ft_rotate_a(t_dblist *pilea)
 {
 	if (!pilea)
 		return ;
-	pilea = dlist_add_end(pilea, pilea->head->value);
+	pilea = dlist_add_head(pilea, pilea->head->value);
 	pilea = dlist_supp_first(pilea);
 	write(1, "ra\n", 3);
 }

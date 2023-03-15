@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 11:46:56 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/13 16:07:11 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:27:15 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,62 @@
 int	main(int argc, char **argv)
 {
 	int			i;
-	int			j;
 	t_dblist	*pilea;
 	t_dblist	*pileb;
 
 	i = 0;
+	//GESTION DERREUR A FAIRE
 	pilea = dlist_new();
 	pileb = dlist_new();
 	while (i < argc - 1)
-		pilea = dlist_add_top(pilea, i);
-	write(1, "caca\n", 5);
+	{
+		pilea = dlist_add_head(pilea, i++);
+		pilea->head->value = ft_atoi(argv[i]);
+		printf("%d\n", pilea->head->value);
+	}
+	i = 0;
+	while (i < argc - 1)
+	{
+		pileb = dlist_add_head(pileb, i++);
+		pileb->head->value = ft_atoi(argv[i]);
+		printf("%d\n", pileb->head->value);
+	}
+
+	t_node	*dbg = pilea->head;
+	while (dbg)
+	{
+		printf("------> dbg (%p)=\tnext = %p\tprev = %p\tvalue = %d\n", dbg, dbg->next, dbg->prev, dbg->value);
+		dbg = dbg->next;
+	}
+	ft_push_a(pilea, pileb);
+/* 	printf("%d\n", pileb->tail->value);
+	printf("%d\n", pileb->head->value);
+	printf("%p\n", pilea);
+	printf("%p\n", pileb);
+	printf("%d\n", pileb->tail->value);*/
+	dbg = pilea->head;
+	while (dbg)
+	{
+		printf("------> dbg (%p)=\tnext = %p\tprev = %p\tvalue = %d\n", dbg, dbg->next, dbg->prev, dbg->value);
+		dbg = dbg->next;
+	}
+	printf("%d\n", pileb->head->value);
+	printf("%d\n", pileb->head->next->value);
+	printf("%d\n", pileb->head->next->next->value);
+	printf("%d\n", pileb->head->next->next->next->value);
+	printf("%d\n", pileb->head->next->next->next->next->value);
 }
 
+//GERER SI IL Y A 3NOMBRES RANDOMS
+/* 
+t_dblist	*ft_tree(t_dblist *pilea, t_dblist *pileb, int argc, char **argv)
+{
+	int			i;
+
+	i = 0;
+	
+}
+ */
 /* int main(void)
 {
 	t_node *a = (t_node *) malloc(sizeof(t_node));

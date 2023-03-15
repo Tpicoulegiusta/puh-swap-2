@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:01:25 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/13 15:31:33 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:54:57 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_dblist	*dlist_add_top(t_dblist *list, int value)
 		if (new != NULL)
 		{
 			new->value = 0;
-			new->next = NULL;
+			new->prev = NULL;
 			if (list->tail == NULL)
 			{
 				new->prev = NULL;
